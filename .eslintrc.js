@@ -19,6 +19,8 @@ module.exports = {
         "vue"
     ],
     "rules": {
-        "indent": ["warn", 4]
+        "indent": ["warn", 4],
+        "semi": 0,
+        "no-undef": 0
     }
 };
