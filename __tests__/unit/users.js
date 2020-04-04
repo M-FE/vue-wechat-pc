@@ -1,14 +1,16 @@
 import { shallowMount } from '@vue/test-utils';
-import Users from '@/components/Users';
+import Users from '@/components/UserList';
 import { findFromWrapper } from '@/utils/test';
 import Vue from 'vue';
 
 const users = [{
+    id: 1,
     avatar: 'http://img5.imgtn.bdimg.com/it/u=1796620972,4019147327&fm=26&gp=0.jpg',
     name: 'willem',
     time: '2020-04-03',
     summary: 'This is summay'
 }, {
+    id: 2,
     avatar: 'http://img5.imgtn.bdimg.com/it/u=1796620972,4019147327&fm=26&gp=0.jpg',
     name: 'wei',
     time: '2019-04-03',

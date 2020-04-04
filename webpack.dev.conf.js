@@ -18,7 +18,8 @@ module.exports = merge(commonConfig, {
         contentBase: resolve('./dist'),
         port: 8090,
         host: '0.0.0.0',
-        hot: true
+        hot: true,
+        hotOnly: false
     },
 
     devtool: '#cheap-module-source-map',
