@@ -1,7 +1,19 @@
 @import './var.scss';
 
 .w-messages {
+    display: flex;
+    flex-direction: column;
     // background-color: $color-7;
+}
+
+.w-messages-nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon-nodata {
+        font-size: $text-icon;
+    }
 }
 
 .w-messages-header {
@@ -11,9 +23,12 @@
     font-size: $text-title;
     font-weight: 400;
     padding: 20px 40px;
+    background-color: #fff;
 }
 
 .w-messages-container {
+    overflow-y: auto;
+    flex: 1;
     padding: 0 40px 10px;
 }
 
@@ -29,7 +44,7 @@
 }
 
 .w-messages-time {
-    margin-top: 20px;
+    padding-top: 20px;
     text-align: center;
 }
 

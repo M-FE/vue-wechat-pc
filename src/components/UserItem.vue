@@ -1,6 +1,5 @@
 <script>
-import moment from 'moment';
-import { DEFAULT_USER_PROPS } from '@/utils/util';
+import { DEFAULT_USER_PROPS, formatDatetime } from '@/utils/util';
 
 export default {
     props: {
@@ -18,19 +17,9 @@ export default {
         },
         userPropNames: {
             type: Object,
-            default() {
+            default () {
                 return DEFAULT_USER_PROPS;
             }
-        }
-    },
-
-    methods: {
-        getDateTime (time) {
-            if (typeof this.dateFormat === 'string') {
-                return moment(time).format(this.dateFormat);
-            }
-
-            return this.dateFormat(time);
         }
     },
 
@@ -51,7 +40,9 @@ export default {
                 <div class="w-user-item-wrapper">
                     <div class="w-user-info">
                         <b class="w-user-name" data-test="username">{ name }</b>
-                        <span class="w-user-time" data-test="datetime">{ this.getDateTime(time) }</span>
+                        <span class="w-user-time" data-test="datetime">
+                            { formatDatetime(this.dateFormat, time) }
+                        </span>
                     </div>
                     <p class="w-user-summary" data-test="summary">{ summary }</p>
                 </div>

@@ -18,7 +18,7 @@ export default {
         },
         userPropNames: {
             type: Object,
-            default() {
+            default () {
                 return DEFAULT_USER_PROPS;
             }
         }

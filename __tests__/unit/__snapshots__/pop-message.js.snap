@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component - PopMessage 生成快照，确定结构 1`] = `
-<div data-test="pop-message" class="pop-right pop-message" style="max-width: 200px;">
+<div data-test="pop-message" class="pop-right pop-message" style="max-width: 200px; background-color: rgb(255, 255, 255);">
   <div>Hello</div>
 </div>
 `;

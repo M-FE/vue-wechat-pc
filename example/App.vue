@@ -1,5 +1,5 @@
 <script>
-import { UserList, PopMessage, Messages } from '@/main';
+import { UserList, PopMessage, Messages, Wrapper } from '@/main';
 
 export default {
     data () {
@@ -31,23 +31,27 @@ export default {
         Messages
     },
 
-    render() {
+    render () {
+        // <UserList users={this.users} />
+        //         <PopMessage style="margin: 10px;">1</PopMessage>
+        //         <PopMessage style="margin: 10px;" placement="right">这是一个测试测试测试测</PopMessage>
+        //         <Messages
+        //             scopedSlots={
+        //                 {
+        //                     messageItem: (message, index) => {
+        //                         return (<div>{message.content}</div>);
+        //                     }
+        //                 }
+        //             }
+        //         />
         return (
-            <div>
-                <UserList users={this.users} />
-                <PopMessage style="margin: 10px;">1</PopMessage>
-                <PopMessage style="margin: 10px;" placement="right">这是一个测试测试测试测</PopMessage>
-                <Messages 
-                    list={this.messageList} 
-                    user={this.users[0]} 
+            <div style="margin: 32px;">
+                <Wrapper
+                    style="height: 100%;"
+                    user={this.users[0]}
                     otherUser={this.users[1]}
-                    scopedSlots={
-                        {
-                            messageItem: (message, index) => {
-                                return (<div>{message.content}</div>);
-                            }
-                        }
-                    }
+                    userList={[...this.users, ...this.users, ...this.users, ...this.users]}
+                    messageList={[...this.messageList, ...this.messageList, ...this.messageList, ...this.messageList]}
                 />
             </div>
         );

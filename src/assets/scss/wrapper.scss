@@ -1,0 +1,16 @@
+@import './var.scss';
+
+.w-wrapper {
+    display: flex;
+    border-radius: $radius;
+    border: 1px solid $color-6;
+    box-shadow: 0 0 2px 1px rgba($color-1, .1);
+}
+
+.w-wrapper-users {
+    border-right: 1px solid $color-6;
+}
+
+.w-rapper-messages {
+    flex: 1;
+}

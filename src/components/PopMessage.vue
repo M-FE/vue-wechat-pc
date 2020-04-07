@@ -1,4 +1,6 @@
 <script>
+import { formatWidth } from '@/utils/util';
+
 export default {
     props: {
         placement: {
@@ -7,7 +9,7 @@ export default {
         },
         maxWidth: {
             type: [String, Number],
-            default: null
+            default: '50%'
         },
         backgroundColor: {
             type: String,
@@ -16,30 +18,22 @@ export default {
     },
 
     computed: {
-        className() {
+        className () {
             if (this.placement === 'right') {
                 return 'pop-right';
             }
 
             return 'pop-left';
         },
-        style() {
-            if (!this.maxWidth) {
-                return {};
-            }
-
-            if (typeof this.maxWidth === 'number') {
-                return { 'max-width': this.maxWidth + 'px' };
-            }
-
-            return { 
-                'max-width': this.maxWidth,
+        style () {
+            return {
+                'max-width': formatWidth(this.maxWidth),
                 backgroundColor: this.backgroundColor
             };
         }
     },
 
-    render() {
+    render () {
         return (
             <div data-test="pop-message" style={this.style} class={[
                 this.className,

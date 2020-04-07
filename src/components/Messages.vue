@@ -1,44 +1,45 @@
 <script>
-import moment from 'moment';
 import PopMessage from './PopMessage';
-import { DEFAULT_USER_PROPS, DEFAULT_MESSAGE_PROPS } from '@/utils/util';
+import { DEFAULT_USER_PROPS, DEFAULT_MESSAGE_PROPS, formatDatetime } from '@/utils/util';
 
 export default {
     props: {
         list: {
             type: Array,
-            default() {
+            default () {
                 return [];
             }
         },
         user: {
             type: Object,
-            default() {
+            default () {
                 return {};
             }
         },
         otherUser: {
             type: Object,
-            default() {
+            default () {
                 return {};
             }
         },
         userPropNames: {
             type: Object,
-            default() {
+            default () {
                 return DEFAULT_USER_PROPS;
             }
         },
         messagePropNames: {
             type: Object,
-            default() {
+            default () {
                 return DEFAULT_MESSAGE_PROPS;
             }
         },
         /* 用于显示的日期的格式，同时用于分组 */
         messageDateFormat: {
-            type: String,
-            default: 'MM/DD/YYYY HH:mm'
+            type: [String, Function],
+            default () {
+                return 'MM/DD/YYYY';
+            }
         },
         popMaxWidth: {
             type: [String, Number],
@@ -51,7 +52,7 @@ export default {
     },
 
     computed: {
-        groupList() {
+        groupList () {
             return this.groupMsgList(this.list);
         }
     },
@@ -62,7 +63,7 @@ export default {
          * @param {array} list
          * @return {array}
          */
-        groupMsgList(msgList) {
+        groupMsgList (msgList) {
             const ret = [];
             const { time: propTime } = this.userPropNames;
 
@@ -71,7 +72,7 @@ export default {
             let time = null;
             let list = [];
             msgList.forEach(item => {
-                const itemTime = moment(item[propTime]).format(this.messageDateFormat);
+                const itemTime = formatDatetime(this.messageDateFormat, item[propTime]);
                 if (!time) {
                     time = itemTime;
                     list.push(item);
@@ -97,25 +98,26 @@ export default {
         /**
          * 对每一项进行渲染
          */
-        renderItem(item, index) {
+        renderItem (item, index) {
             const { id, content, other } = this.messagePropNames;
             const { avatar } = this.userPropNames;
-            
+
             return (
-                <li 
-                    data-test="messages-item" 
-                    key={item[id]} 
+                <li
+                    data-test="messages-item"
+                    key={item[id]}
                     class={['w-messages-item', !item[other] ? 'item-right' : 'item-left']}
                 >
                     <img class="w-messages-avatar" data-test="messages-avatar" src={this.user[avatar]} />
-                    <PopMessage 
-                        class="w-messages-item-content" 
-                        placement={item[other] ? 'left' : 'right'} 
+                    <PopMessage
+                        class="w-messages-item-content"
+                        placement={item[other] ? 'left' : 'right'}
                         maxWidth={this.popMaxWidth}
+                        backgroundColor={item[other] ? '#fff' : '#9eea6a'}
                     >
                         {
-                            this.$scopedSlots.messageItem ?
-                                this.$scopedSlots.messageItem(item, index)
+                            this.$scopedSlots.messageItem
+                                ? this.$scopedSlots.messageItem(item, index)
                                 : item[content]
                         }
                     </PopMessage>
@@ -125,7 +127,7 @@ export default {
         /**
          * 对每个组进行渲染
          */
-        renderGroup(group) {
+        renderGroup (group) {
             return (
                 <div class="w-messages-group" key={group.time} data-test="messages-group">
                     <div class="w-messages-time">
@@ -141,12 +143,12 @@ export default {
         }
     },
 
-    render() {
+    render () {
         const { id, name } = this.userPropNames;
 
         if (!this.otherUser[id]) {
             return (
-                <div class="w-messages" data-test="nodata">
+                <div class="w-messages-nodata" data-test="nodata">
                     <i class="iconfont icon-nodata"></i>
                 </div>
             );
