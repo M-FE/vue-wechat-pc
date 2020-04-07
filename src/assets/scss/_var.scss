@@ -1,0 +1,16 @@
+$text-base: 16px;
+$text-sm: 13px;
+$color-1: #333;
+$color-2: #666;
+$color-3: #999;
+$color-4: #c6c6c6;
+$color-5: #dfddda;
+$color-6: #edebe9;
+$color-7: #f5f5f5;
+$radius: 3px;
+
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

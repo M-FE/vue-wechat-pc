@@ -1,5 +1,6 @@
 <script>
 import UserList from '@/components/UserList';
+import PopMessage from '@/components/PopMessage';
 import '@/main';
 
 export default {
@@ -22,12 +23,17 @@ export default {
     },
 
     components: {
-        UserList
+        UserList,
+        PopMessage
     },
 
     render () {
         return (
-            <UserList users={this.users} />
+            <div>
+                <UserList users={this.users} />
+                <PopMessage style="margin: 10px;">1</PopMessage>
+                <PopMessage style="margin: 10px;" placement="right">这是一个测试测试测试测</PopMessage>
+            </div>
         );
     }
 }
