@@ -48,6 +48,10 @@ module.exports = {
                         reloadAll: true
                     }
                 }, 'css-loader', 'postcss-loader', 'sass-loader']
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: ['file-loader']
             }
         ]
     },

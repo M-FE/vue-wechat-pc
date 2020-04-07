@@ -38,7 +38,7 @@ export default {
         messageDateFormat: {
             type: [String, Function],
             default () {
-                return 'MM/DD/YYYY';
+                return 'MM/DD/YYYY HH:mm';
             }
         },
         popMaxWidth: {

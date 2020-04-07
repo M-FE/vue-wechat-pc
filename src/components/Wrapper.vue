@@ -40,18 +40,16 @@ export default {
             }
         },
         otherUser: {
-            type: Object,
-            default () {
-                return {};
-            }
+            type: [Number, String],
+            default: ''
         },
-        userPropNames: {
+        userProps: {
             type: Object,
             default () {
                 return DEFAULT_USER_PROPS;
             }
         },
-        messagePropNames: {
+        messageProps: {
             type: Object,
             default () {
                 return DEFAULT_MESSAGE_PROPS;
@@ -64,7 +62,17 @@ export default {
         popMaxWidth: {
             type: [String, Number],
             default: '50%'
+        },
+        placeholder: {
+            type: String,
+            default: 'Search'
         }
+    },
+
+    data () {
+        return {
+            userId: ''
+        };
     },
 
     computed: {
@@ -72,6 +80,31 @@ export default {
             return {
                 width: formatWidth(this.usersWidth)
             };
+        },
+        userPropNames () {
+            return formatUserPropNames(this.userProps);
+        },
+        messagePropNames () {
+            return formatMessagePropNames(this.messageProps);
+        },
+        selectedUser () {
+            return this.userList.find(user => user[this.userPropNames.id] === this.userId);
+        }
+    },
+
+    methods: {
+        userChange (userId) {
+            this.userId = userId;
+            this.$emit('update:otherUser', userId);
+        }
+    },
+
+    watch: {
+        otherUser: {
+            immediate: true,
+            handler (n) {
+                this.userId = n;
+            }
         }
     },
 
@@ -82,18 +115,21 @@ export default {
                     class="w-wrapper-users"
                     data-test="wrapper-users"
                     style={this.usersStyle}
+                    value={this.userId}
                     users={this.userList}
                     userDateFormat={this.userDateFormat}
-                    userPropNames={formatUserPropNames(this.userPropNames)}
+                    userPropNames={this.userPropNames}
+                    placeholder={this.placeholder}
+                    onChange={this.userChange}
                 />
                 <Messages
                     class="w-rapper-messages"
                     data-test="wrapper-messages"
                     list={this.messageList}
                     user={this.user}
-                    otherUser={this.otherUser}
-                    userPropNames={formatUserPropNames(this.userPropNames)}
-                    messagePropNames={formatMessagePropNames(this.messagePropNames)}
+                    otherUser={this.selectedUser}
+                    userPropNames={this.userProps}
+                    messagePropNames={this.messagePropNames}
                     messageDateFormat={this.messageDateFormat}
                     popMaxWidth={this.popMaxWidth}
                 />

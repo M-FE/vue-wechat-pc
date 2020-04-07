@@ -4,6 +4,10 @@ import { DEFAULT_USER_PROPS } from '@/utils/util';
 
 export default {
     props: {
+        value: {
+            type: [String, Number],
+            default: null
+        },
         users: {
             type: Array,
             default () {
@@ -21,6 +25,10 @@ export default {
             default () {
                 return DEFAULT_USER_PROPS;
             }
+        },
+        placeholder: {
+            type: String,
+            default: ''
         }
     },
 
@@ -45,7 +53,8 @@ export default {
          * 抛出user-change事件
          */
         handleChange (user, index) {
-            this.$emit('user-change', user, index);
+            this.$emit('input', user[this.userPropNames.id]);
+            this.$emit('change', user[this.userPropNames.id]);
         },
         /**
          * keyword改变
@@ -74,7 +83,7 @@ export default {
                         data-test="search"
                         value={ this.keyword }
                         onInput={ this.keywordChange }
-                        placeholder="Search"
+                        placeholder={this.placeholder}
                     />
                     <i class="w-search-icon iconfont icon-search"></i>
                 </div>
@@ -84,10 +93,13 @@ export default {
                             this.filterUsers.map((user, index) => {
                                 return (
                                     <Item
+                                        class={ [
+                                            this.value === user[this.userPropNames.id] && 'selected'
+                                        ] }
+                                        data-test="item"
                                         user={user}
                                         key={user[this.userPropNames.id]}
                                         userPropNames={this.userPropNames}
-                                        data-test="item"
                                         dateFormat={this.userDateFormat}
                                         nativeOnClick={() => {
                                             this.handleChange(user, index);

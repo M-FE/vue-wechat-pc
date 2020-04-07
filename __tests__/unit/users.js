@@ -64,7 +64,19 @@ describe('Component - Users', () => {
         });
     });
 
-    it('列表项点击之后会抛出一个user-change事件，参数是当前的user和index', () => {
+    it('用户传入value时，默认选中id为value的项', () => {
+        const wrapper = shallowMount(Users, {
+            propsData: {
+                users,
+                value: 2
+            }
+        });
+
+        const currentItem = findFromWrapper(wrapper, 'item').at(1);
+        expect(currentItem.classes('selected')).toBeTruthy();
+    });
+
+    it('列表项点击之后会抛出一个input和change事件，参数是当前的user的id', () => {
         const wrapper = shallowMount(Users, {
             propsData: {
                 users
@@ -74,9 +86,10 @@ describe('Component - Users', () => {
         const index = 0;
         const item = findFromWrapper(wrapper, 'item').at(index);
         item.trigger('click');
-        const userChange = wrapper.emitted()['user-change'][0];
+        const userInput = wrapper.emitted()['input'][0];
+        const userChange = wrapper.emitted()['change'][0];
 
-        expect(userChange[0]).toEqual(users[index]);
-        expect(userChange[1]).toBe(index);
+        expect(userChange[0]).toEqual(users[index].id);
+        expect(userInput[0]).toEqual(users[index].id);
     });
 });

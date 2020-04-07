@@ -1,5 +1,16 @@
+<template>
+    <div style="margin: 32px;">
+        <Wrapper
+            style="height: 500px;"
+            :user="users[1]"
+            :userList="users"
+            :messageList="messageList"
+        />
+    </div>
+</template>
+
 <script>
-import { UserList, PopMessage, Messages, Wrapper } from '@/main';
+import { Wrapper } from '@/main';
 
 export default {
     data () {
@@ -21,40 +32,13 @@ export default {
                 { id: 3, content: 'ccc 123123 123123123    123123', time: '2020-04-07 14:51:05', other: false },
                 { id: 2, content: 'bbb', time: '2020-04-07 14:50:31', other: true },
                 { id: 1, content: 'aaa', time: '2020-04-07 14:50:30', other: false }
-            ]
+            ],
+            userId: 1
         };
     },
 
     components: {
-        UserList,
-        PopMessage,
-        Messages
-    },
-
-    render () {
-        // <UserList users={this.users} />
-        //         <PopMessage style="margin: 10px;">1</PopMessage>
-        //         <PopMessage style="margin: 10px;" placement="right">这是一个测试测试测试测</PopMessage>
-        //         <Messages
-        //             scopedSlots={
-        //                 {
-        //                     messageItem: (message, index) => {
-        //                         return (<div>{message.content}</div>);
-        //                     }
-        //                 }
-        //             }
-        //         />
-        return (
-            <div style="margin: 32px;">
-                <Wrapper
-                    style="height: 100%;"
-                    user={this.users[0]}
-                    otherUser={this.users[1]}
-                    userList={[...this.users, ...this.users, ...this.users, ...this.users]}
-                    messageList={[...this.messageList, ...this.messageList, ...this.messageList, ...this.messageList]}
-                />
-            </div>
-        );
+        Wrapper
     }
 }
 </script>
