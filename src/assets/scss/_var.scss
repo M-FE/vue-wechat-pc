@@ -1,3 +1,4 @@
+$text-title: 20px;
 $text-base: 16px;
 $text-sm: 13px;
 $color-1: #333;
@@ -8,6 +9,7 @@ $color-5: #dfddda;
 $color-6: #edebe9;
 $color-7: #f5f5f5;
 $radius: 3px;
+$width-avatar: 48px;
 
 @mixin ellipsis() {
     overflow: hidden;

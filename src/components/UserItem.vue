@@ -1,5 +1,6 @@
 <script>
 import moment from 'moment';
+import { DEFAULT_USER_PROPS } from '@/utils/util';
 
 export default {
     props: {
@@ -9,16 +10,16 @@ export default {
                 return {};
             }
         },
-        propNames: {
-            type: Object,
-            default () {
-                return {};
-            }
-        },
         dateFormat: {
             type: [String, Object],
             default () {
                 return '';
+            }
+        },
+        userPropNames: {
+            type: Object,
+            default() {
+                return DEFAULT_USER_PROPS;
             }
         }
     },
@@ -35,10 +36,10 @@ export default {
 
     render () {
         const {
-            [this.propNames.avatar]: avatar,
-            [this.propNames.name]: name,
-            [this.propNames.time]: time,
-            [this.propNames.summary]: summary
+            [this.userPropNames.avatar]: avatar,
+            [this.userPropNames.name]: name,
+            [this.userPropNames.time]: time,
+            [this.userPropNames.summary]: summary
         } = this.user;
 
         return (

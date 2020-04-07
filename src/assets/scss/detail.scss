@@ -1,0 +1,70 @@
+@import './var.scss';
+
+.w-messages {
+    // background-color: $color-7;
+}
+
+.w-messages-header {
+    @include ellipsis();
+    display: block;
+    border-bottom: 1px solid $color-6;
+    font-size: $text-title;
+    font-weight: 400;
+    padding: 20px 40px;
+}
+
+.w-messages-container {
+    padding: 0 40px 10px;
+}
+
+.w-messages-groups {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.w-messages-avatar {
+    width: $width-avatar;
+    height: $width-avatar;
+}
+
+.w-messages-time {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.w-messages-time-inner {
+    padding: 4px 6px;
+    border-radius: $radius;
+    font-size: $text-sm;
+    color: #fff;
+    background-color: $color-5;
+}
+
+.w-messages-item {
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+
+    &.item-right {
+        .w-messages-avatar {
+            float: right;
+        }
+
+        .w-messages-item-content {
+            float: right;
+            margin-right: 8px;
+        }
+    }
+
+    &.item-left {
+        .w-messages-avatar {
+            float: left;
+        }
+        
+        .w-messages-item-content {
+            float: left;
+            margin-left: 8px;
+        }
+    }
+}

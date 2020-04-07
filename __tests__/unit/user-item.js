@@ -10,19 +10,11 @@ const user = {
     summary: 'This is summay'
 };
 
-const propNames = {
-    avatar: 'avatar',
-    name: 'name',
-    time: 'time',
-    summary: 'summary'
-};
-
 describe('Component - User', () => {
     it('应该包含一个用户名，头像，日期和摘要', () => {
         const wrapper = shallowMount(UserItem, {
             propsData: {
                 user,
-                propNames,
                 dateFormat: 'DD/MM/YYYY'
             }
         });
@@ -40,8 +32,7 @@ describe('Component - User', () => {
                     name: 'willem',
                     time: '2020-04-03',
                     summary: 'This is summay'
-                },
-                propNames
+                }
             }
         });
 

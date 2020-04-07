@@ -1,7 +1,5 @@
 <script>
-import UserList from '@/components/UserList';
-import PopMessage from '@/components/PopMessage';
-import '@/main';
+import { UserList, PopMessage, Messages } from '@/main';
 
 export default {
     data () {
@@ -18,21 +16,39 @@ export default {
                 name: 'wei',
                 time: '2019-04-03',
                 summary: 'This is summay123123'
-            }]
+            }],
+            messageList: [
+                { id: 3, content: 'ccc 123123 123123123    123123', time: '2020-04-07 14:51:05', other: false },
+                { id: 2, content: 'bbb', time: '2020-04-07 14:50:31', other: true },
+                { id: 1, content: 'aaa', time: '2020-04-07 14:50:30', other: false }
+            ]
         };
     },
 
     components: {
         UserList,
-        PopMessage
+        PopMessage,
+        Messages
     },
 
-    render () {
+    render() {
         return (
             <div>
                 <UserList users={this.users} />
                 <PopMessage style="margin: 10px;">1</PopMessage>
                 <PopMessage style="margin: 10px;" placement="right">这是一个测试测试测试测</PopMessage>
+                <Messages 
+                    list={this.messageList} 
+                    user={this.users[0]} 
+                    otherUser={this.users[1]}
+                    scopedSlots={
+                        {
+                            messageItem: (message, index) => {
+                                return (<div>{message.content}</div>);
+                            }
+                        }
+                    }
+                />
             </div>
         );
     }
