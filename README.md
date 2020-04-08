@@ -29,6 +29,7 @@ yarn add vue-wechat-pc
 </template>
 
 <script>
+import 'vue-wechat-pc/dist/index.css';
 import { WeChat } from 'vue-wechat-pc';
 export default {
     data () {

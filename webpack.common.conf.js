@@ -59,8 +59,7 @@ module.exports = {
     plugins: [
         new vueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].[hash:8].css',
-            chunkFilename: 'css/[id].[hash:8].css'
+            filename: 'css/index.css'
         }),
         new ProgressBarPlugin()
     ]

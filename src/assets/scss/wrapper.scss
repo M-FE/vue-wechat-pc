@@ -5,6 +5,7 @@
     border-radius: $radius;
     border: 1px solid $color-6;
     box-shadow: 0 0 2px 1px rgba($color-1, .1);
+    min-height: 100px;
 }
 
 .w-wrapper-users {

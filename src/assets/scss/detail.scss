@@ -3,6 +3,7 @@
 .w-messages {
     display: flex;
     flex-direction: column;
+    background-color: #fff;
     // background-color: $color-7;
 }
 
@@ -10,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
 
     .icon-nodata {
         font-size: $text-icon;
