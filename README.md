@@ -19,7 +19,7 @@ yarn add vue-wechat-pc
 
 ```javascript
 <template>
-    <Wrapper
+    <WeChat
         style="height: 500px;"
         :otherUser.sync="userId"
         :user="users[1]"
@@ -29,7 +29,7 @@ yarn add vue-wechat-pc
 </template>
 
 <script>
-import { Wrapper } from 'vue-wechat-pc';
+import { WeChat } from 'vue-wechat-pc';
 export default {
     data () {
         return {
@@ -56,10 +56,7 @@ export default {
     },
 
     components: {
-        UserList,
-        PopMessage,
-        Messages,
-        Wrapper
+        WeChat
     }
 }
 </script>
@@ -150,6 +147,10 @@ export default {
 
 搜索框的placeholder值。默认值：`Search`。
 
+- **`scrollToBottom: `** `Boolean`
+
+消息框是否默认滚动到最下面。默认值：`true`。
+
 ## SlotScopes
 
 - **`messageItem`**
@@ -157,7 +158,7 @@ export default {
 用于自定义消息显示内容。
 
 ```javascript
-<Wrapper>
+<WeChat>
     <div slot-scope="message">{{ message.id }}</div>
-</Wrapper>
+</WeChat>
 ```

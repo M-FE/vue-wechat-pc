@@ -1,6 +1,6 @@
 <template>
     <div style="margin: 32px;">
-        <Wrapper
+        <WeChat
             style="height: 500px;"
             :user="users[1]"
             :userList="users"
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Wrapper } from '@/main';
+import { WeChat } from '@/main';
 
 export default {
     data () {
@@ -31,14 +31,19 @@ export default {
             messageList: [
                 { id: 3, content: 'ccc 123123 123123123    123123', time: '2020-04-07 14:51:05', other: false },
                 { id: 2, content: 'bbb', time: '2020-04-07 14:50:31', other: true },
-                { id: 1, content: 'aaa', time: '2020-04-07 14:50:30', other: false }
+                { id: 1, content: 'aaa', time: '2020-04-07 14:50:30', other: false },
+                { id: 4, content: 'aaa', time: '2020-04-07 14:50:30', other: true },
+                { id: 5, content: 'aaa', time: '2020-04-07 14:50:30', other: true },
+                { id: 6, content: 'aaa', time: '2020-04-07 14:50:30', other: true },
+                { id: 7, content: 'aaa', time: '2020-04-07 14:50:30', other: false },
+                { id: 8, content: 'aaa', time: '2020-04-07 14:50:30', other: false }
             ],
             userId: 1
         };
     },
 
     components: {
-        Wrapper
+        WeChat
     }
 }
 </script>

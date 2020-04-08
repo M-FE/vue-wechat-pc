@@ -3,11 +3,11 @@ import './assets/iconfont/iconfont';
 import UserList from './components/UserList';
 import PopMessage from './components/PopMessage';
 import Messages from './components/Messages';
-import Wrapper from './components/Wrapper';
+import WeChat from './components/Wrapper';
 
 export {
     UserList,
     Messages,
     PopMessage,
-    Wrapper
+    WeChat
 };

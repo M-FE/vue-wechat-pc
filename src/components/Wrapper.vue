@@ -66,6 +66,10 @@ export default {
         placeholder: {
             type: String,
             default: 'Search'
+        },
+        scrollToBottom: {
+            type: Boolean,
+            default: true
         }
     },
 
@@ -127,6 +131,7 @@ export default {
                     data-test="wrapper-messages"
                     list={this.messageList}
                     user={this.user}
+                    toBottom={this.toBottom}
                     otherUser={this.selectedUser}
                     userPropNames={this.userProps}
                     messagePropNames={this.messagePropNames}

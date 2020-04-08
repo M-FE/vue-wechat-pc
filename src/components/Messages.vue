@@ -45,6 +45,10 @@ export default {
         popMaxWidth: {
             type: [String, Number],
             default: '50%'
+        },
+        scrollToBottom: {
+            type: Boolean,
+            default: true
         }
     },
 
@@ -129,6 +133,14 @@ export default {
          * 对每个组进行渲染
          */
         renderGroup (group) {
+            if (this.scrollToBottom) {
+                this.$nextTick(() => {
+                    if (this.$refs.container) {
+                        this.$refs.container.scrollTop = 10000;
+                    }
+                });
+            }
+
             return (
                 <div class="w-messages-group" key={group.time} data-test="messages-group">
                     <div class="w-messages-time">
@@ -160,7 +172,7 @@ export default {
                 <b class="w-messages-header" data-test="messages-title">
                     { this.otherUser[name] }
                 </b>
-                <div class="w-messages-container">
+                <div class="w-messages-container" ref="container">
                     {
                         this.groupList.map(group => this.renderGroup(group))
                     }
