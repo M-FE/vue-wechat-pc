@@ -3,9 +3,10 @@
 [![NPM downloads](https://img.shields.io/npm/dm/vue-wechat-pc.svg?style=flat)](https://npmjs.com/package/vue-wechat-pc)
 > 仿造PC版的微信实现的信息展示类组件，用于对话形式（如讨价还价的过程等）的数据展示。
 
-![](https:assets-cdn.99plas.com/packages/wechat-example.png)
+![](https://assets-cdn.99plas.com/packages/wechat-example.png)
 
 ## Installation
+
 ```javascript
 npm install --save vue-wechat-pc
 # or
@@ -13,8 +14,10 @@ yarn add vue-wechat-pc
 ```
 
 ## Usage
+
 ### demo.vue
-```
+
+```javascript
 <template>
     <Wrapper
         style="height: 500px;"
@@ -68,7 +71,8 @@ export default {
 - **`userList: `** `Array`
 
 用户列表。默认值：`[]`。字段必须包括 **id** `Number|String` 用户Id, **avatar** `String` 用户头像, **name** `String` 用户名, **time** `String` 产生的最后对话的时间, **summary** `String` 产生的最后对话的摘要。以上属性可通过修改`userProps`（下面有说明）属性修改字段映射关系。
-```
+
+```javascript
 [{
     id: 1,
     avatar: 'https://baidu.com/1.png',
@@ -81,7 +85,8 @@ export default {
 - **`messageList: `** `Array`
 
 当前用于显示的信息列表。默认值：`[]`。字段必须包括 **id** `Number|String` 消息Id, **content** `String` 消息内容, **time** `String` 消息产生的时间, **other** `Boolean` 是否是对方发出的消息。以上属性可通过修改`messageProps`（下面有说明）属性修改字段映射关系。
-```
+
+```javascript
 [{ 
     id: 3, 
     content: 'ccc 123123 123123123    123123', 
@@ -93,7 +98,8 @@ export default {
 - **`userProps: `** `Object`
 
 修改userList字段的映射关系。默认值：
-```
+
+```javascript
 {
     id: 'id',
     avatar: 'avatar',
@@ -106,7 +112,8 @@ export default {
 - **`messageProps: `** `Object`
 
 修改messageList字段的映射关系。默认值：
-```
+
+```javascript
 {
     id: 'id',
     content: 'content',
@@ -142,3 +149,15 @@ export default {
 - **`placeholder: `** `String`
 
 搜索框的placeholder值。默认值：`Search`。
+
+## SlotScopes
+
+- **`messageItem`**
+
+用于自定义消息显示内容。
+
+```javascript
+<Wrapper>
+    <div slot-scope="message">{{ message.id }}</div>
+</Wrapper>
+```

@@ -86,8 +86,8 @@ describe('Component - Users', () => {
         const index = 0;
         const item = findFromWrapper(wrapper, 'item').at(index);
         item.trigger('click');
-        const userInput = wrapper.emitted()['input'][0];
-        const userChange = wrapper.emitted()['change'][0];
+        const userInput = wrapper.emitted().input[0];
+        const userChange = wrapper.emitted().change[0];
 
         expect(userChange[0]).toEqual(users[index].id);
         expect(userInput[0]).toEqual(users[index].id);

@@ -10,7 +10,7 @@ export default {
             }
         },
         dateFormat: {
-            type: [String, Object],
+            type: [String, Function],
             default () {
                 return '';
             }

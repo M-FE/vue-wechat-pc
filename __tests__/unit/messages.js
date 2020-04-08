@@ -123,6 +123,7 @@ describe('Component - Messages', () => {
     });
 
     it('组件提供了slot-scope=messageItem来自定义消息', (done) => {
+        // { id: 1, content: 'aaa', other: false, time: '2020-04-07 14:50:30' }
         const wrapper = shallowMount(Messages, {
             propsData: {
                 list: messageList,
@@ -139,5 +140,18 @@ describe('Component - Messages', () => {
             expect(messages.at(0).text()).toBe('1');
             done();
         });
+    });
+
+    it('传入messageDateFormat来自定义日期显示', () => {
+        const wrapper = shallowMount(Messages, {
+            propsData: {
+                list: messageList,
+                otherUser,
+                messageDateFormat: (time) => { return time; }
+            }
+        });
+
+        const messageTime = findFromWrapper(wrapper, 'messages-time').at(0);
+        expect(messageTime.text()).toBe('2020-04-07 14:50:30');
     });
 });

@@ -3,6 +3,7 @@ const commonConfig = require('./webpack.common.conf');
 const path = require('path');
 const optimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const terserJsPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack');
 
 const resolve = p => {
 	return path.resolve(__dirname, p);
@@ -19,8 +20,15 @@ module.exports = merge(commonConfig, {
 	devtool: false /* 'source-map' */,
 
 	optimization: {
-		minimizer: [new optimizeCssAssetsWebpackPlugin(), new terserJsPlugin()]
+		minimizer: [
+			new optimizeCssAssetsWebpackPlugin(), 
+			new terserJsPlugin()
+		]
 	},
 
-	mode: 'production'
+	mode: 'production',
+
+	plugins: [
+		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+	]
 });

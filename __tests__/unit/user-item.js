@@ -38,4 +38,19 @@ describe('Component - User', () => {
 
         expect(findFromWrapper(wrapper, 'avatar').exists()).toBeFalsy();
     });
+
+    it('设置userDateFormat为Function，自定义日期', () => {
+        const wrapper = shallowMount(UserItem, {
+            propsData: {
+                user: {
+                    name: 'willem',
+                    time: '2020-04-03',
+                    summary: 'This is summay'
+                },
+                dateFormat: (time) => time
+            }
+        });
+
+        expect(findFromWrapper(wrapper, 'datetime').at(0).text()).toBe('2020-04-03');
+    });
 });

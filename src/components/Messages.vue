@@ -1,5 +1,6 @@
 <script>
 import PopMessage from './PopMessage';
+import Icon from './Icon';
 import { DEFAULT_USER_PROPS, DEFAULT_MESSAGE_PROPS, formatDatetime } from '@/utils/util';
 
 export default {
@@ -148,8 +149,8 @@ export default {
 
         if (!this.otherUser[id]) {
             return (
-                <div class="w-messages-nodata" data-test="nodata">
-                    <i class="iconfont icon-nodata"></i>
+                <div class="w-messages-nodata">
+                    <Icon class="icon-nodata" data-test="nodata" name="nodata" />
                 </div>
             );
         }

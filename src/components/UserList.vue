@@ -1,5 +1,6 @@
 <script>
 import Item from './UserItem';
+import Icon from './Icon';
 import { DEFAULT_USER_PROPS } from '@/utils/util';
 
 export default {
@@ -85,7 +86,7 @@ export default {
                         onInput={ this.keywordChange }
                         placeholder={this.placeholder}
                     />
-                    <i class="w-search-icon iconfont icon-search"></i>
+                    <Icon class="w-search-icon" name="search" />
                 </div>
                 <div class="w-users-wrapper">
                     <ul class="w-user-list">

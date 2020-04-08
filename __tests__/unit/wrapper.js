@@ -23,4 +23,25 @@ describe('Component - Wrapper', () => {
 
         expect(userWrapper.attributes('style')).toContain('width: 200px');
     });
+
+    it('当前的userId默认为空', () => {
+        const wrapper = shallowMount(Wrapper);
+        expect(wrapper.vm.userId).toBe('');
+    });
+
+    it('触发userchange事件时，修改当前userId', () => {
+        const wrapper = shallowMount(Wrapper);
+        wrapper.vm.userChange(1);
+        expect(wrapper.vm.userId).toBe(1);
+    });
+
+    it('传入的otherUser=1，userId也应该等于1', () => {
+        const wrapper = shallowMount(Wrapper, {
+            propsData: {
+                otherUser: 1
+            }
+        });
+
+        expect(wrapper.vm.userId).toBe(1);
+    });
 });
