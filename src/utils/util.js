@@ -53,7 +53,7 @@ export const formatWidth = (width) => {
  */
 export const formatDatetime = (dateFormat, time) => {
     if (typeof dateFormat === 'string') {
-        return moment(time).format(dateFormat);
+        return time ? moment(time).format(dateFormat) : '';
     }
 
     return dateFormat(time);

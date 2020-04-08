@@ -133,7 +133,7 @@ export default {
                     user={this.user}
                     toBottom={this.toBottom}
                     otherUser={this.selectedUser}
-                    userPropNames={this.userProps}
+                    userPropNames={this.userPropNames}
                     messagePropNames={this.messagePropNames}
                     messageDateFormat={this.messageDateFormat}
                     popMaxWidth={this.popMaxWidth}

@@ -42,11 +42,7 @@ describe('Component - User', () => {
     it('设置userDateFormat为Function，自定义日期', () => {
         const wrapper = shallowMount(UserItem, {
             propsData: {
-                user: {
-                    name: 'willem',
-                    time: '2020-04-03',
-                    summary: 'This is summay'
-                },
+                user,
                 dateFormat: (time) => time
             }
         });

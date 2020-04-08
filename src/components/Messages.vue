@@ -58,7 +58,7 @@ export default {
 
     computed: {
         groupList () {
-            return this.groupMsgList(this.list);
+            return this.groupMsgList(JSON.parse(JSON.stringify(this.list)));
         }
     },
 
@@ -70,7 +70,7 @@ export default {
          */
         groupMsgList (msgList) {
             const ret = [];
-            const { time: propTime } = this.userPropNames;
+            const { time: propTime } = this.messagePropNames;
 
             msgList = msgList.sort((a, b) => new Date(a[propTime]) - new Date(b[propTime]));
 
