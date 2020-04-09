@@ -72,10 +72,6 @@ export default {
         scrollToBottom: {
             type: Boolean,
             default: true
-        },
-        defaultAvatar: {
-            type: String,
-            default: ''
         }
     },
 
@@ -130,7 +126,6 @@ export default {
                     userDateFormat={this.userDateFormat}
                     userPropNames={this.userPropNames}
                     placeholder={this.placeholder}
-                    defaultAvatar={this.defaultAvatar}
                     onChange={this.userChange}
                 />
                 <Messages
@@ -144,7 +139,6 @@ export default {
                     messagePropNames={this.messagePropNames}
                     messageDateFormat={this.messageDateFormat}
                     popMaxWidth={this.popMaxWidth}
-                    defaultAvatar={this.defaultAvatar}
                     scopedSlots={{
                         messageItem: this.$scopedSlots.messageItem
                     }}

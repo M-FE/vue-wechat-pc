@@ -1,6 +1,8 @@
 <template>
     <div style="margin: 32px;">
         <PopMessage />
+        <Avatar title="韦双健" />
+        <Avatar title="Willem wei company" />
         <WeChat
             style="height: 500px;"
             :user="users[1]"
@@ -16,7 +18,7 @@
 </template>
 
 <script>
-import { WeChat, PopMessage } from '@/main';
+import { WeChat, PopMessage, Avatar } from '@/main';
 
 export default {
     data () {
@@ -28,7 +30,7 @@ export default {
                 summary: 'This is summay'
             }, {
                 id: 2,
-                // avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585943958566&di=38ae311becf29781df3313190e6e2f12&imgtype=0&src=http%3A%2F%2Ft9.baidu.com%2Fit%2Fu%3D86853839%2C3576305254%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D750%26h%3D390',
+                avatar: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1585943958566&di=38ae311becf29781df3313190e6e2f12&imgtype=0&src=http%3A%2F%2Ft9.baidu.com%2Fit%2Fu%3D86853839%2C3576305254%26fm%3D79%26app%3D86%26f%3DJPEG%3Fw%3D750%26h%3D390',
                 name: 'wei',
                 summary: 'This is summay123123'
             }],
@@ -48,7 +50,8 @@ export default {
 
     components: {
         WeChat,
-        PopMessage
+        PopMessage,
+        Avatar
     },
 
     methods: {

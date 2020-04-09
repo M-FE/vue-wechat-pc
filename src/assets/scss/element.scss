@@ -37,3 +37,25 @@
         }
     }
 }
+
+.w-avatar {
+    overflow: hidden;
+    border: 1px solid $color-6;
+    width: $width-avatar;
+    height: $width-avatar;
+    box-sizing: border-box;
+
+    .w-avatar-img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    .w-avatar-text {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: $width-avatar;
+        font-size: $text-lg;
+    }
+}

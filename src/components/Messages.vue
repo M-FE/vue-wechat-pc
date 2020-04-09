@@ -1,5 +1,6 @@
 <script>
 import PopMessage from './PopMessage';
+import Avatar from './Avatar';
 import Icon from './Icon';
 import { DEFAULT_USER_PROPS, DEFAULT_MESSAGE_PROPS, formatDatetime } from '@/utils/util';
 
@@ -49,10 +50,6 @@ export default {
         scrollToBottom: {
             type: Boolean,
             default: true
-        },
-        defaultAvatar: {
-            type: String,
-            default: ''
         }
     },
 
@@ -109,7 +106,8 @@ export default {
          */
         renderItem (item, index) {
             const { id, content, other } = this.messagePropNames;
-            const { avatar } = this.userPropNames;
+            const { avatar, name } = this.userPropNames;
+            const user = item[other] ? this.otherUser : this.user;
 
             return (
                 <li
@@ -117,7 +115,12 @@ export default {
                     key={item[id]}
                     class={['w-messages-item', !item[other] ? 'item-right' : 'item-left']}
                 >
-                    <img class="w-messages-avatar" data-test="messages-avatar" src={this.user[avatar] || this.defaultAvatar} />
+                    <Avatar
+                        class="w-messages-avatar"
+                        data-test="messages-avatar"
+                        avatar={user[avatar]}
+                        title={user[name]}
+                    />
                     <PopMessage
                         class="w-messages-item-content"
                         placement={item[other] ? 'left' : 'right'}

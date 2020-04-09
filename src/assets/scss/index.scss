@@ -1,4 +1,4 @@
-.icon {
+.w-icon {
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;
@@ -7,6 +7,6 @@
 }
 
 @import './detail.scss';
-@import './user.scss';
-@import './pop-message.scss';
 @import './wrapper.scss';
+@import './user.scss';
+@import './element.scss';

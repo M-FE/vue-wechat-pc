@@ -65,14 +65,6 @@
     }
 }
 
-.w-user-avatar {
-    overflow: hidden;
-    border: 1px solid $color-6;
-    width: $width-avatar;
-    height: $width-avatar;
-    box-sizing: border-box;
-}
-
 .w-user-item-wrapper {
     display: flex;
     flex-direction: column;

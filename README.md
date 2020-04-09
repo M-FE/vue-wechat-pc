@@ -68,7 +68,7 @@ export default {
 
 - **`userList: `** `Array`
 
-用户列表。默认值：`[]`。字段必须包括 **id** `Number|String` 用户Id, **avatar** `String` 用户头像, **name** `String` 用户名, **time** `String` 产生的最后对话的时间, **summary** `String` 产生的最后对话的摘要。以上属性可通过修改`userProps`（下面有说明）属性修改字段映射关系。
+用户列表。默认值：`[]`。字段必须包括 **id** `Number|String` 用户Id, **avatar** `String` 用户头像, **name** `String` 用户名, **time** `String` 产生的最后对话的时间, **summary** `String` 产生的最后对话的摘要。以上属性可通过修改`userProps`（下面有说明）属性修改字段映射关系。当未传入**avatar**字段时，默认使用**name**显示 - 包含中文则显示第一个字，全英文则显示前两个单词的首字母大写。
 
 ```javascript
 [{

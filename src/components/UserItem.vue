@@ -1,4 +1,5 @@
 <script>
+import Avatar from './Avatar';
 import { DEFAULT_USER_PROPS, formatDatetime } from '@/utils/util';
 
 export default {
@@ -20,10 +21,6 @@ export default {
             default () {
                 return DEFAULT_USER_PROPS;
             }
-        },
-        defaultAvatar: {
-            type: String,
-            default: ''
         }
     },
 
@@ -37,10 +34,7 @@ export default {
 
         return (
             <li class="w-user-item">
-                {
-                    (avatar || this.defaultAvatar) &&
-                    <img class="w-user-avatar" data-test="avatar" src={avatar || this.defaultAvatar} title={name} />
-                }
+                <Avatar data-test="avatar" avatar={avatar} title={name} />
                 <div class="w-user-item-wrapper">
                     <div class="w-user-info">
                         <b class="w-user-name" data-test="username">{ name }</b>
