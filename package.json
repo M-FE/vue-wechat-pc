@@ -1,6 +1,6 @@
 {
   "name": "vue-wechat-pc",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "PC WeChat display component for vue.js.",
   "main": "dist/main.js",
   "directories": {
