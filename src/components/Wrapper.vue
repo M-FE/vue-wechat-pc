@@ -137,6 +137,9 @@ export default {
                     messagePropNames={this.messagePropNames}
                     messageDateFormat={this.messageDateFormat}
                     popMaxWidth={this.popMaxWidth}
+                    scopedSlots={{
+                        messageItem: this.$scopedSlots.messageItem
+                    }}
                 />
             </div>
         );

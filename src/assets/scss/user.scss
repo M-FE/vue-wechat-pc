@@ -66,6 +66,7 @@
 }
 
 .w-user-avatar {
+    overflow: hidden;
     border: 1px solid $color-6;
     width: $width-avatar;
     height: $width-avatar;

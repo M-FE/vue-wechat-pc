@@ -1,5 +1,6 @@
 <template>
     <div style="margin: 32px;">
+        <PopMessage />
         <WeChat
             style="height: 500px;"
             :user="users[1]"
@@ -7,12 +8,14 @@
             :messageList="messageList"
             :messageProps="{time: 'a'}"
             :update:otherUser="userChange"
-        />
+        >
+            <template slot="messageItem">{{ 123 }}</template>
+        </WeChat>
     </div>
 </template>
 
 <script>
-import { WeChat } from '@/main';
+import { WeChat, PopMessage } from '@/main';
 
 export default {
     data () {
@@ -43,7 +46,8 @@ export default {
     },
 
     components: {
-        WeChat
+        WeChat,
+        PopMessage
     },
 
     methods: {
