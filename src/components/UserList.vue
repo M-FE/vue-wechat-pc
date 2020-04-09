@@ -30,6 +30,10 @@ export default {
         placeholder: {
             type: String,
             default: ''
+        },
+        defaultAvatar: {
+            type: String,
+            default: ''
         }
     },
 
@@ -102,6 +106,7 @@ export default {
                                         key={user[this.userPropNames.id]}
                                         userPropNames={this.userPropNames}
                                         dateFormat={this.userDateFormat}
+                                        defaultAvatar={this.defaultAvatar}
                                         nativeOnClick={() => {
                                             this.handleChange(user, index);
                                         }}

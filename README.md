@@ -160,6 +160,6 @@ export default {
 
 ```javascript
 <WeChat>
-    <div slot-scope="message">{{ message.id }}</div>
+    <div slot="messageItem" slot-scope="message">{{ message.id }}</div>
 </WeChat>
 ```

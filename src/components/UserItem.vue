@@ -20,6 +20,10 @@ export default {
             default () {
                 return DEFAULT_USER_PROPS;
             }
+        },
+        defaultAvatar: {
+            type: String,
+            default: ''
         }
     },
 
@@ -34,8 +38,8 @@ export default {
         return (
             <li class="w-user-item">
                 {
-                    avatar &&
-                    <img class="w-user-avatar" data-test="avatar" src={avatar} title={name} />
+                    (avatar || this.defaultAvatar) &&
+                    <img class="w-user-avatar" data-test="avatar" src={avatar || this.defaultAvatar} title={name} />
                 }
                 <div class="w-user-item-wrapper">
                     <div class="w-user-info">

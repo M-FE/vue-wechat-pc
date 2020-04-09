@@ -49,6 +49,10 @@ export default {
         scrollToBottom: {
             type: Boolean,
             default: true
+        },
+        defaultAvatar: {
+            type: String,
+            default: ''
         }
     },
 
@@ -113,7 +117,7 @@ export default {
                     key={item[id]}
                     class={['w-messages-item', !item[other] ? 'item-right' : 'item-left']}
                 >
-                    <img class="w-messages-avatar" data-test="messages-avatar" src={this.user[avatar]} />
+                    <img class="w-messages-avatar" data-test="messages-avatar" src={this.user[avatar] || this.defaultAvatar} />
                     <PopMessage
                         class="w-messages-item-content"
                         placement={item[other] ? 'left' : 'right'}
