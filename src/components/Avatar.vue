@@ -28,14 +28,8 @@ export default {
     },
 
     render () {
-        if (this.avatar) {
-            return (
-                <img class="w-avatar" data-test="avatar-img" src={this.avatar} title={this.title} />
-            );
-        }
-
         return (
-            <div class="w-avatar">
+            <div class={['w-avatar']}>
                 {
                     this.avatar
                         ? <img class="w-avatar-img" data-test="avatar-img" src={this.avatar} title={this.title} />
