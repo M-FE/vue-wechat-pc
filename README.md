@@ -3,7 +3,7 @@
 [![NPM downloads](https://img.shields.io/npm/dm/vue-wechat-pc.svg?style=flat)](https://npmjs.com/package/vue-wechat-pc)
 > 仿造PC版的微信实现的信息展示类组件，用于对话形式（如讨价还价的过程等）的数据展示。
 
-![](https://assets-cdn.99plas.com/packages/wechat-example.png)
+![](http://assets-cdn.99plas.com/packages/wechat-example.png?t=20200413)
 
 ## Installation
 
