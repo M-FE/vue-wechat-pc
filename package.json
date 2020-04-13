@@ -51,6 +51,7 @@
     "file-loader": "^6.0.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.5",
     "jest": "^25.2.6",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
@@ -85,5 +86,10 @@
   "bugs": {
     "url": "https://github.com/M-FE/vue-wechat-pc/issues"
   },
-  "homepage": "https://github.com/M-FE/vue-wechat-pc#readme"
+  "homepage": "https://github.com/M-FE/vue-wechat-pc#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint & npm run test"
+    }
+  }
 }
