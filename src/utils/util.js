@@ -12,7 +12,8 @@ export const DEFAULT_MESSAGE_PROPS = {
     id: 'id',
     content: 'content',
     time: 'time',
-    other: 'other'
+    other: 'other',
+    background: 'background'
 };
 
 /**

@@ -105,9 +105,10 @@ export default {
          * 对每一项进行渲染
          */
         renderItem (item, index) {
-            const { id, content, other } = this.messagePropNames;
+            const { id, content, other, background } = this.messagePropNames;
             const { avatar, name } = this.userPropNames;
             const user = item[other] ? this.otherUser : this.user;
+            const popMessageBack = item[background] || (item[other] ? '#fff' : '#9eea6a');
 
             return (
                 <li
@@ -125,7 +126,7 @@ export default {
                         class="w-messages-item-content"
                         placement={item[other] ? 'left' : 'right'}
                         maxWidth={this.popMaxWidth}
-                        backgroundColor={item[other] ? '#fff' : '#9eea6a'}
+                        backgroundColor={popMessageBack}
                     >
                         {
                             this.$scopedSlots.messageItem

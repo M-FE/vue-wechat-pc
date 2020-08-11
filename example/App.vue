@@ -37,7 +37,7 @@ export default {
             }],
             messageList: [
                 { id: 3, content: 'ccc 123123 123123123    123123', a: '2020-04-07 14:51:05', other: false },
-                { id: 2, content: 'bbb', a: '2020-04-07 14:50:31', other: true },
+                { id: 2, content: 'bbb', a: '2020-04-07 14:50:31', other: true, background: '#f00' },
                 { id: 1, content: 'aaa', a: '2020-04-07 14:50:30', other: false },
                 { id: 4, content: 'aaa', a: '2020-04-07 14:50:30', other: true },
                 { id: 5, content: 'aaa', a: '2020-04-07 14:50:30', other: true },

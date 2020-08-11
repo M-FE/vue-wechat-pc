@@ -82,7 +82,7 @@ export default {
 
 - **`messageList: `** `Array`
 
-当前用于显示的信息列表。默认值：`[]`。字段必须包括 **id** `Number|String` 消息Id, **content** `String` 消息内容, **time** `String` 消息产生的时间, **other** `Boolean` 是否是对方发出的消息。以上属性可通过修改`messageProps`（下面有说明）属性修改字段映射关系。
+当前用于显示的信息列表。默认值：`[]`。字段必须包括 **id** `Number|String` 消息Id, **content** `String` 消息内容, **time** `String` 消息产生的时间, **other** `Boolean` 是否是对方发出的消息, **background** `String` 消息气泡的背景色(此项可不填)。以上属性可通过修改`messageProps`（下面有说明）属性修改字段映射关系。
 
 ```javascript
 [{ 
@@ -116,7 +116,8 @@ export default {
     id: 'id',
     content: 'content',
     time: 'time',
-    other: 'other'
+    other: 'other',
+    background: 'background'
 }
 ```
 
